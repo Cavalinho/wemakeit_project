@@ -53,6 +53,9 @@
             <div class="btn-group">
                 <%= link_to 'Back', backend_path, class: "btn btn-outline-info" %>
             </div>
+            <div class="btn-group">
+                <%= link_to 'Destroy', backend_project_path(@project), method: 'delete', class: "btn btn-outline-danger" %>
+            </div>
         </div>
     </div>
 </div>

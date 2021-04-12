@@ -10,6 +10,9 @@ module Backend
         end
 
         def destroy
+            @project = Project.find(params[:id])
+            @project.destroy
+            redirect_to backend_path
         end
     end
 end
