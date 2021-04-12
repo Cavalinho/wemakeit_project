@@ -1,0 +1,23 @@
+<% @projects.each do |project| %>
+    <div class="index-card">
+        <% if project.image.file.attached? %>
+            <%= link_to project_path(project.id) do %>
+                <%= image_tag(url_for(project.image.file), class: "image_style") %>
+            <% end %>
+        <% end %>
+        <div class="btn-group">
+            <div class="title">
+               Project Title:
+               <small><%= project.title.split(/(?=[A-Z])/).join(" ") %></small>
+            </div>
+        </div>
+        <div class="btn-group">
+            <div class="title">
+                Pledge:
+                <small><%= project.pledge.title %></small>
+                <small><%= project.pledge.amount %> €</small>
+                <small><%= project.pledge.description %></small>
+            </div>
+        </div>
+    </div>
+<% end %>

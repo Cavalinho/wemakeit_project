@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WemakeItProject</title>
+
+  <%= stylesheet_link_tag    'application', media: 'all'%>
+  <%= javascript_pack_tag 'application', media: 'all'%>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+  <div id="st-container" class="st-container" >
+    <div class="st-content">
+      <nav class="navbar navbar-light frontend-color">
+        <div class="navbar-brand">Frontend only shows Projects with Pledges!</div>
+        <%= link_to 'Switch to Backend', backend_path, class: "btn btn-outline-success" %>
+      </nav>
+    </div>
+    <div class="inner-content">
+      <%= yield %>
+    </div>
+  </div>
+</body>
+</html>

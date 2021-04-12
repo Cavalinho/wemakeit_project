@@ -1,0 +1,58 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-xl-2">
+        </div>
+        <div class="col-md-6 col-xl-6 pt-4">
+                <!-- 14.12. -->
+            <%= image_tag(url_for(@project.image.file), class: "image_style") %>
+            <div class="panel pt-2">
+                <div class="btn-group">Image title: <%= @project.image.title %></div>
+            </div>
+            <div class="panel pt-2">
+                <div class="btn-group">Image description: <%= @project.image.description %></div>
+            </div>
+            <div class="panel pt-4">
+                <div class="btn-group">Project</div>
+            </div>
+            <div class="panel pt-2">
+                <div class="btn-group">Project title: <%= @project.title %></div>
+            </div>
+            <div class="panel pt-2">
+                <div class="btn-group">Project description: <%= @project.description %></div>
+            </div>
+            <div class="panel pt-2">
+                <div class="btn-group">Project introduction: <%= @project.introduction_text %></div>
+            </div>
+            <div class="panel pt-2">
+                <div class="btn-group">Project financial goal: <%= @project.goal %> €</div>
+            </div>
+            <div class="panel pt-4">
+                <div class="btn-group">Project Owner</div>
+            </div>
+            <div class="panel pt-2">
+                <div class="btn-group">Owner Name: <%= @project.owner_name %></div>
+            </div>
+            <div class="panel pt-2">
+                <div class="btn-group">Owner Email: <%= @project.owner_email %></div>
+            </div>
+            <div class="panel pt-4">
+            <% unless @project.pledge.nil? %>
+                <div class="btn-group">Pledge</div>
+                </div>
+                <div class="panel pt-2">
+                    <div class="btn-group">Owner Name: <%= @project.pledge.title %></div>
+                </div>
+                <div class="panel pt-2">
+                    <div class="btn-group">Owner Name: <%= @project.pledge.amount %> €</div>
+                </div>
+                <div class="panel pt-2">
+                    <div class="btn-group">Owner Name: <%= @project.pledge.description %></div>
+                </div>
+            <% end %>
+            <br>
+            <div class="btn-group">
+                <%= link_to 'Back', backend_path, class: "btn btn-outline-info" %>
+            </div>
+        </div>
+    </div>
+</div>

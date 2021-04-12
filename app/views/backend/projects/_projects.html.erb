@@ -1,0 +1,28 @@
+<% @projects.each do |project| %>
+    <div class="index-card">
+        <% if project.image.file.attached? %>
+            <%= link_to backend_project_path(project.id) do %>
+                <%= image_tag(url_for(project.image.file), class: "image_style") %>
+            <% end %>
+        <% end %>
+        <div class="btn-group">
+            <div class="title">
+               Project Title:
+               <small><%= project.title.split(/(?=[A-Z])/).join(" ") %></small>
+            </div>
+        </div>
+        <% if project.pledge.nil? %>
+            <div class="btn-group" style="display: initial;">
+                <div class="title">
+                   <small><%= link_to 'Add Pledge', new_backend_project_pledge_path(project.id) %></small>
+                </div>
+            </div>
+        <% else %>
+            <div class="btn-group" style="display: initial;">
+                <div class="title">
+                   <small><%= link_to 'Remove Pledge', backend_project_pledge_path(project.id, project.pledge.id), method: :delete, style: 'color: red;' %></small>
+                </div>
+            </div>
+        <% end %>
+    </div>
+<% end %>

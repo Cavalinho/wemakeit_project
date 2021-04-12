@@ -1,0 +1,28 @@
+<h1 class="ml-4">STEP 3</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-2">
+        </div>
+        <div class="col-md-10 col-xl-10">
+            <section>
+                <%= form_with(model: @project_goal, url: backend_project_pacer_project_goals_path, local: true ) do |form|  %>
+                <div class="form-group">
+                    <%= form.label :goal, 'Financial goal'  %>
+                    <%= form.text_field :goal, style: 'display: block'  %>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <%= form.submit 'Next', class: 'btn btn-outline-dark' %>
+                    </div>
+                    <br>
+                    <% if flash[:alert_3] %>
+                    <ul class="badge">
+                        <p class="alert alert-danger"><%= flash[:alert_3] %></p>
+                    </ul>
+                    <% end %>
+                </div>
+                <% end %>
+            </section>
+        </div>
+    </div>
+</div>

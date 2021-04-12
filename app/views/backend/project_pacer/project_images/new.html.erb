@@ -1,0 +1,49 @@
+<style>
+
+label.asdndzone {
+    padding: 19px 20px 20px;
+}
+
+.image-input-size {
+    height: 140px;
+    width: 270px;
+    }
+
+</style>
+
+<h1 class="ml-4">STEP 2</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-2">
+        </div>
+        <div class="col-md-10 col-xl-10">
+            <section>
+                <%= form_with(model: @project_image, url: backend_project_pacer_project_images_path, local: true) do |form|  %>
+                <div class="form-group">
+                    <%= form.label :title, 'Image Title' %>
+                    <%= form.text_field :title, style: 'display: block'  %>
+                </div>
+                <div class="field">
+                    <%= form.label :image %>
+                    <%= form.drag_and_drop_file_field :image, 'Drag & Drop Image', class: 'image-input-size' %>
+                </div>
+                <div class="form-group">
+                    <%= form.label :description, 'Image description' %>
+                    <%= form.text_field :description, style: 'display: block'  %>
+                </div>
+                <div class="form-group">
+                     <div>
+                         <%= form.submit 'Next', class: 'btn btn-outline-dark' %>
+                     </div>
+                     <br>
+                     <% if flash[:alert_2] %>
+                     <ul class="badge">
+                         <p class="alert alert-danger"><%= flash[:alert_2] %></p>
+                     </ul>
+                     <% end %>
+                </div>
+                <% end %>
+            </section>
+        </div>
+    </div>
+</div>
